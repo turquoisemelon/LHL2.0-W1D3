@@ -88,11 +88,13 @@ var uid = function() {
 // adds a track to the library
 
 var addTrack = function (name, artist, album) {
-  var newTrack = `t0${uid()}`
-  library.tracks[newTrack]: {"id": newTrack, "name": name, "artust": artis, "album": album}
-
+  var newTrack = `t${uid()}`
+  library.tracks[newTrack] = {"id": newTrack, "name": name, "artist": artist, "album": album};
+  return library;
 }
 
+var a = addTrack("mel", "test", "foo");
+console.log(a);
 
 // adds a playlist to the library
 

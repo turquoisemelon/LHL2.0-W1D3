@@ -42,14 +42,26 @@ var library = {
 // printTracks(library);
 
 
+// var printPlaylist = function (playlistId) {
+//     var resultPlaylist = `${playlistId}: ${library.playlists[playlistId]["name"]} - ${library.playlists[playlistId]["tracks"].length} tracks`;
+//     console.log(resultPlaylist);
+//     for (var track of library.playlists[playlistId]["tracks"]){
+//       var resultTracks = `${track}: ${library.tracks[track].name} by ${library.tracks[track].artist} (${library.tracks[track].album})`;
+//       console.log(resultTracks);
+//     }
+// }
+//
+// printPlaylist ("p01");
 
-var printPlaylist = function (playlistId) {
-    var resultPlaylist = `${playlistId}: ${library.playlists[playlistId]["name"]} - ${library.playlists[playlistId]["tracks"].length} tracks`;
-    console.log(resultPlaylist);
-    for (var track of library.playlists[playlistId]["tracks"]){
-      var resultTracks = `${track}: ${library.tracks[track].name} by ${library.tracks[track].artist} (${library.tracks[track].album})`;
-      console.log(resultTracks);
-    }
+var uid = function() {
+  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
 
-printPlaylist ("p01");
+var addTrack = function (name, artist, album) {
+  var newTrack = `t${uid()}`
+  library.tracks[newTrack] = {"id": newTrack, "name": name, "artist": artist, "album": album};
+  return library;
+}
+
+var a = addTrack("mel", "test", "foo");
+console.log(a);
