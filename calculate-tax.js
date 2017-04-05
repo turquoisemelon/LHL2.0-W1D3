@@ -24,12 +24,16 @@ var companySalesData = [
 
 function calculateSalesTax(salesData, taxRates) {
   var resultObj = {};
+
   for (var key in salesData) {
+
     var salesByCompany = salesData[key].sales;
     var companyTotalSales = calculateSales(salesByCompany);
     var companyTotalTaxes = calculateTax(salesData[key], taxRates);
+
+    // add sales data to object if not there, if it is there update its value
     if (!resultObj[salesData[key].name]) {
-      resultObj[salesData[key].name] = {"totalSales": companyTotalSales, "totalTaxes": companyTotalTaxes};
+      resultObj[salesData[key].name] = {"totalSales": companyTotalSales, "totalTaxes": companyTotalTaxes };
     } else {
       resultObj[salesData[key].name]["totalSales"] += companyTotalSales;
       resultObj[salesData[key].name]["totalTaxes"] += companyTotalTaxes;
@@ -39,11 +43,12 @@ function calculateSalesTax(salesData, taxRates) {
 }
 
 function calculateSales (salesDataArr) {
-    var totalSales = 0;
-    for (var i = 0; i < salesDataArr.length; i++) {
-      totalSales += salesDataArr[i];
-    }
-    return totalSales;
+  var totalSales = alesDataArr.reduce((acc, value) => {return acc + value}, 0);
+    // var totalSales = 0;
+    // for (var i = 0; i < salesDataArr.length; i++) {
+    //   totalSales += salesDataArr[i];
+    // }
+  return totalSales;
 }
 
 function calculateTax(salesElement, taxRate) {
