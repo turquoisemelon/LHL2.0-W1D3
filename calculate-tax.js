@@ -43,7 +43,7 @@ function calculateSalesTax(salesData, taxRates) {
 }
 
 function calculateSales (salesDataArr) {
-  var totalSales = alesDataArr.reduce((acc, value) => {return acc + value}, 0);
+  var totalSales = salesDataArr.reduce((acc, value) => {return acc + value}, 0);
     // var totalSales = 0;
     // for (var i = 0; i < salesDataArr.length; i++) {
     //   totalSales += salesDataArr[i];
