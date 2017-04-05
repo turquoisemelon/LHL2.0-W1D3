@@ -7,7 +7,7 @@ function countLetters(sentence) {
     if(!obj[letter]) {
       obj[letter] = 1;
     } else {
-      obj[letter] ++;
+      obj[letter]++;
     }
   }
   return obj;
