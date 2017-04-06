@@ -88,7 +88,7 @@ var uid = function() {
 // adds a track to the library
 
 var addTrack = function (name, artist, album) {
-  var newTrack = `t${uid()}`
+  var newTrack = `t${uid()}`;
   library.tracks[newTrack] = {"id": newTrack, "name": name, "artist": artist, "album": album};
   return library;
 }
@@ -99,9 +99,18 @@ console.log(a);
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
-
+  var newPlaylist = `p${uid()}`;
+  var newTrack = `t${uid()}`;
+  var newTrackArr = [];
+  newTrackArr.push(newTrack);
+  console.log(newTrackArr);
+  library["playlists"][newPlaylist] = {"id": newPlaylist, "name": name, "tracks": newTrackArr};
+  console.log(library);
+  return library;
 }
 
+var b = addPlaylist("foo");
+console.log(b);
 
 // STRETCH:
 // given a query string string, prints a list of tracks

@@ -21,24 +21,10 @@ var library = {
                       tracks: ["t03"]
                     }
              }
+  printPlaylists : function () {
+               for (var elem in this.playlists) {
+                 var result = `${elem}: ${this.playlists[elem].name} - ${this.playlists[elem]["tracks"].length} tracks`;
+                 console.log(result);
+               }
+             }
 }
-
-
-
-var uid = function() {
-  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-}
-
-
-var addPlaylist = function (name) {
-  var newPlaylist = `p${uid()}`;
-  var newTrack = `t${uid()}`;
-  var newTrackArr = [];
-  newTrackArr.push(newTrack);
-  console.log(newTrackArr);
-  library["playlists"][newPlaylist] = {"id": newPlaylist, "name": name, "tracks": newTrackArr};
-  console.log(library);
-  return library;
-}
-
-addPlaylist("foo");
